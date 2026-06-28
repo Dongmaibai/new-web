@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>科室设置 - 湖北第二师范学院基建处</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* 子页面专用样式 */
+    .page-wrap { max-width:1200px; margin:0 auto; padding:24px; }
+    .breadcrumb { font-size:13px; color:#888; margin-bottom:16px; }
+    .breadcrumb a { color:#1a4d8f; }
+    .breadcrumb a:hover { text-decoration:underline; }
+    .breadcrumb span { margin:0 6px; }
+    .page-card { background:#fff; border:1px solid #e0e4e8; border-radius:4px; overflow:hidden; }
+    .page-card-header {
+      background:#1a4d8f; color:#fff;
+      padding:12px 20px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .page-card-header h1 { font-size:16px; font-weight:700; }
+    .page-card-body { padding:24px 28px; }
+    .page-card-body p { font-size:14px; line-height:1.9; color:#444; margin-bottom:12px; }
+    .page-card-body h3 { font-size:15px; font-weight:700; color:#1a4d8f; margin:20px 0 10px; border-left:3px solid #1a4d8f; padding-left:10px; }
+    .article-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+    .article-table th { background:#1a4d8f; color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-table td { padding:9px 14px; border-bottom:1px solid #eee; }
+    .article-table tr:last-child td { border-bottom:none; }
+    .article-table tr:hover td { background:#f5f7fa; }
+    .article-table a { color:#333; transition:color 0.2s; }
+    .article-table a:hover { color:#1a4d8f; }
+    .article-table .num { color:#999; text-align:center; }
+    .org-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+    .org-table th { background:#1a4d8f; color:#fff; padding:10px 14px; text-align:center; font-weight:600; }
+    .org-table td { padding:10px 14px; border:1px solid #e0e4e8; text-align:center; vertical-align:middle; }
+    .org-table tr:nth-child(even) td { background:#f9f9f9; }
+    .contact-info p { margin-bottom:8px; }
+    .contact-info .label { font-weight:600; color:#1a4d8f; display:inline-block; width:80px; }
+    .map-placeholder { width:100%; height:240px; background:#e8ecf1; border-radius:4px; display:flex; align-items:center; justify-content:center; color:#999; font-size:14px; margin-top:16px; border:1px dashed #ccc; }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部横幅 -->
+  <div class="banner">
+    <div class="banner-inner">
+      <div class="banner-logo">
+        <img src="https://miaoda-conversation-file.cdn.bcebos.com/user-cmg2eoeibj7k/app-cmg5jd41cgld/20260627/image_1782550266827.png" alt="湖北第二师范学院校徽">
+      </div>
+      <div class="banner-text">
+        <div class="school-name">
+          <div class="cn">湖北第二师范学院</div>
+          <div class="en">HUBEI UNIVERSITY OF EDUCATION</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="dept-name">
+          <div class="cn">基建处</div>
+          <div class="en">Infrastructure Construction Department</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <button class="mobile-toggle" onclick="toggleMobileNav()">&#9776;</button>
+      <div class="nav-menu" id="navMenu">
+        <div class="nav-item"><a href="https://www.hue.edu.cn" target="_blank">二师首页</a></div>
+        <div class="nav-item"><a href="index.html">部门首页</a></div>
+        <div class="nav-item active">
+          <span>部门简介 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="dept-organization.html">组织机构</a>
+            <a href="dept-functions.html">工作职能</a>
+            <a href="dept-offices.html">科室设置</a>
+            <a href="dept-responsibilities.html">科室职责</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="party-building.html">党建工作</a></div>
+        <div class="nav-item">
+          <span>工作动态 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="work-business.html">业务动态</a>
+            <a href="work-projects.html">项目建设</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="study.html">学习园地</a></div>
+        <div class="nav-item">
+          <span>规章制度 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="regulations-national.html">国家相关政策法规</a>
+            <a href="regulations-school.html">学校相关规则制度</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="notices.html">通知公告</a></div>
+        <div class="nav-item"><a href="contact.html">联系我们</a></div>
+      </div>
+    </div>
+    <div class="mobile-nav hidden" id="mobileNav">
+      <a href="https://www.hue.edu.cn" target="_blank">二师首页</a>
+      <a href="index.html">部门首页</a>
+      <div class="mobile-group-title">部门简介</div>
+      <a href="dept-organization.html">组织机构</a>
+      <a href="dept-functions.html">工作职能</a>
+      <a href="dept-offices.html">科室设置</a>
+      <a href="dept-responsibilities.html">科室职责</a>
+      <a href="party-building.html">党建工作</a>
+      <div class="mobile-group-title">工作动态</div>
+      <a href="work-business.html">业务动态</a>
+      <a href="work-projects.html">项目建设</a>
+      <a href="study.html">学习园地</a>
+      <div class="mobile-group-title">规章制度</div>
+      <a href="regulations-national.html">国家相关政策法规</a>
+      <a href="regulations-school.html">学校相关规则制度</a>
+      <a href="notices.html">通知公告</a>
+      <a href="contact.html">联系我们</a>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <div class="page-wrap">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a><span>&gt;</span><a href="dept-organization.html">部门简介</a><span>&gt;</span>科室设置
+    </div>
+    <div class="page-card">
+      <div class="page-card-header"><h1>科室设置</h1></div>
+      <div class="page-card-body">
+        <p>基建处下设以下职能科室，各科室各司其职，协力推进学校建设工作。</p>
+  <table class="org-table" style="margin-top:12px">
+    <thead><tr><th>科室名称</th><th>主要职责</th></tr></thead>
+    <tbody>
+      <tr><td>综合办公室</td><td>文秘、档案、财务管理及对外协调</td></tr>
+      <tr><td>工程管理科</td><td>新建项目工程管理、质量与进度控制</td></tr>
+      <tr><td>规划设计科</td><td>建设规划编制、设计方案审核及报建手续</td></tr>
+      <tr><td>招标管理科</td><td>工程招标、采购及合同管理</td></tr>
+      <tr><td>维修管理科</td><td>校园维修改造计划制定与实施</td></tr>
+      <tr><td>安全质量科</td><td>施工安全生产监管、工程质量检查</td></tr>
+    </tbody>
+  </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <footer class="footer" style="margin-top:32px">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <h4>友情链接</h4>
+        <a href="http://www.jcut.edu.cn" target="_blank">荆楚理工学院基建处</a>
+        <a href="https://www.ccnu.edu.cn" target="_blank">华中师范大学基建处</a>
+        <a href="https://www.hust.edu.cn" target="_blank">华中科技大学基建处</a>
+        <a href="https://www.cug.edu.cn" target="_blank">中国地质大学基建处</a>
+        <a href="https://www.whu.edu.cn" target="_blank">武汉大学基建处</a>
+      </div>
+      <div class="footer-bottom">
+        <p>地址：武汉市东湖新技术开发区高新二路129号 邮编：430205 鄂ICP备 15016711号-1</p>
+        <p>© 湖北第二师范学院基建处 版权所有</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileNav() {
+      var nav = document.getElementById('mobileNav');
+      nav.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>湖北第二师范学院基建处</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 顶部横幅 -->
+  <div class="banner">
+    <div class="banner-inner">
+      <div class="banner-logo">
+        <img src="https://miaoda-conversation-file.cdn.bcebos.com/user-cmg2eoeibj7k/app-cmg5jd41cgld/20260627/image_1782550266827.png" alt="湖北第二师范学院校徽">
+      </div>
+      <div class="banner-text">
+        <div class="school-name">
+          <div class="cn">湖北第二师范学院</div>
+          <div class="en">HUBEI UNIVERSITY OF EDUCATION</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="dept-name">
+          <div class="cn">基建处</div>
+          <div class="en">Infrastructure Construction Department</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <button class="mobile-toggle" onclick="toggleMobileNav()">&#9776;</button>
+      <div class="nav-menu" id="navMenu">
+        <div class="nav-item"><a href="https://www.hue.edu.cn" target="_blank">二师首页</a></div>
+        <div class="nav-item active"><a href="index.html">部门首页</a></div>
+        <div class="nav-item">
+          <span>部门简介 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="dept-organization.html">组织机构</a>
+            <a href="dept-functions.html">工作职能</a>
+            <a href="dept-offices.html">科室设置</a>
+            <a href="dept-responsibilities.html">科室职责</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="party-building.html">党建工作</a></div>
+        <div class="nav-item">
+          <span>工作动态 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="work-business.html">业务动态</a>
+            <a href="work-projects.html">项目建设</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="study.html">学习园地</a></div>
+        <div class="nav-item">
+          <span>规章制度 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="regulations-national.html">国家相关政策法规</a>
+            <a href="regulations-school.html">学校相关规则制度</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="notices.html">通知公告</a></div>
+        <div class="nav-item"><a href="contact.html">联系我们</a></div>
+      </div>
+    </div>
+    <div class="mobile-nav hidden" id="mobileNav">
+      <a href="https://www.hue.edu.cn" target="_blank">二师首页</a>
+      <a href="index.html">部门首页</a>
+      <div class="mobile-group-title">部门简介</div>
+      <a href="dept-organization.html">组织机构</a>
+      <a href="dept-functions.html">工作职能</a>
+      <a href="dept-offices.html">科室设置</a>
+      <a href="dept-responsibilities.html">科室职责</a>
+      <a href="party-building.html">党建工作</a>
+      <div class="mobile-group-title">工作动态</div>
+      <a href="work-business.html">业务动态</a>
+      <a href="work-projects.html">项目建设</a>
+      <a href="study.html">学习园地</a>
+      <div class="mobile-group-title">规章制度</div>
+      <a href="regulations-national.html">国家相关政策法规</a>
+      <a href="regulations-school.html">学校相关规则制度</a>
+      <a href="notices.html">通知公告</a>
+      <a href="contact.html">联系我们</a>
+    </div>
+  </nav>
+
+  <!-- 轮播图 -->
+  <div class="carousel" id="carousel">
+    <div class="carousel-slide active">
+      <img src="https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_dc925201-0303-4e48-9fef-700ded7bdfcd.jpg" alt="校园基础设施建设">
+      <div class="carousel-caption"><p>校园基础设施建设全面推进</p></div>
+    </div>
+    <div class="carousel-slide">
+      <img src="https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_54a316af-58d9-415c-85e2-184b4a43a140.jpg" alt="教学楼建设">
+      <div class="carousel-caption"><p>综合教学楼建设工程顺利推进</p></div>
+    </div>
+    <div class="carousel-slide">
+      <img src="https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_cd405db3-b728-4dfe-828f-84f8c230c675.jpg" alt="校园规划">
+      <div class="carousel-caption"><p>校园总体规划鸟瞰</p></div>
+    </div>
+    <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+    <div class="carousel-dots">
+      <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+      <button class="carousel-dot" onclick="goToSlide(1)"></button>
+      <button class="carousel-dot" onclick="goToSlide(2)"></button>
+    </div>
+  </div>
+
+  <!-- 四个板块 -->
+  <div class="container">
+    <div class="content-grid">
+
+      <!-- 信息公开 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>信息公开</h2>
+          <a href="notices.html" class="more">更多&gt;&gt;</a>
+        </div>
+        <div class="card-body">
+          <ul class="article-list">
+            <li><div class="arrow"></div><a href="article.html?id=home-info-1">评标结果公示--湖北第二师范学院...</a><span class="date">2023-04-06</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-info-2">湖北第二师范学院综合教学楼和工...</a><span class="date">2023-03-31</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-info-3">湖北第二师范学院生态停车场建设...</a><span class="date">2023-03-31</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-info-4">【湖北省中心】湖北第二师范学院...</a><span class="date">2022-07-10</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-info-5">湖北第二师范学院工程实训中心土...</a><span class="date">2022-06-15</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-info-6">【湖北省中心】湖北第二师范学院...</a><span class="date">2022-05-17</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 工作动态 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>工作动态</h2>
+          <a href="work-business.html" class="more">更多&gt;&gt;</a>
+        </div>
+        <div class="card-body">
+          <div class="card-list">
+            <div class="item">
+              <div class="thumb">
+                <img src="https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_dc925201-0303-4e48-9fef-700ded7bdfcd.jpg" alt="工作动态">
+              </div>
+              <div class="info">
+                <a href="article.html?id=home-work-1">以师生为本 聚力攻坚 基础设施建设全面推进</a>
+                <p class="desc">"十四五"期间，学校坚持以习近平新时代中国特色社会主义思想为指导，聚焦"补短板、提品质、强保障、促共..."</p>
+                <p class="date">2024-12-20</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumb">
+                <img src="https://miaoda-site-img.cdn.bcebos.com/images/MiaoTu_02a98762-47d3-4025-b40b-956354a533d1.jpg" alt="党建工作">
+              </div>
+              <div class="info">
+                <a href="article.html?id=home-work-2">基建处党支部开展深入贯彻中央八项规定精神学习教育总结活动</a>
+                <p class="desc">基建处党支部开展深入贯彻中央八项精神学习教育总结活动本网讯（通讯员 杨戌）为持续巩固拓展深入贯彻中央...</p>
+                <p class="date">2024-11-15</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 学习园地 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>学习园地</h2>
+          <a href="study.html" class="more">更多&gt;&gt;</a>
+        </div>
+        <div class="card-body">
+          <ul class="article-list">
+            <li><div class="arrow"></div><a href="article.html?id=home-study-1">习近平在中共中央政治局第二十一...</a><span class="date">2025-07-09</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-study-2">中央广播电视总台党组专题传达学...</a><span class="date">2025-06-09</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-study-3">中共中央国务院印发《党政机关厉...</a><span class="date">2025-06-09</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-study-4">习近平在河南省考察时强调 坚定...</a><span class="date">2025-06-09</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-study-5">中共中央印发《中国共产党重大事...</a><span class="date">2025-05-22</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-study-6">李强作的政府工作报告（摘登）</a><span class="date">2025-04-23</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-study-7">《教育强国建设规划纲要（2024-2...</a><span class="date">2025-03-26</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 通知公告 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>通知公告</h2>
+          <a href="notices.html" class="more">更多&gt;&gt;</a>
+        </div>
+        <div class="card-body">
+          <ul class="article-list">
+            <li><div class="arrow"></div><a href="article.html?id=home-notice-1">关于做好2025年暑期校园基础设施维修改造工作的通知</a><span class="date">2025-06-20</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-notice-2">基建处关于开展校园安全隐患排查整治专项行动的通知</a><span class="date">2025-05-15</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-notice-3">关于征集2025年度校园基础设施建设项目建议的通知</a><span class="date">2025-04-10</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-notice-4">基建处2025年度工作计划</a><span class="date">2025-01-20</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-notice-5">关于规范校园施工管理的通知</a><span class="date">2024-12-05</span></li>
+            <li><div class="arrow"></div><a href="article.html?id=home-notice-6">基建处关于做好冬季施工安全管理的通知</a><span class="date">2024-11-10</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <h4>友情链接</h4>
+        <a href="http://www.jcut.edu.cn" target="_blank">荆楚理工学院基建处</a>
+        <a href="https://www.ccnu.edu.cn" target="_blank">华中师范大学基建处</a>
+        <a href="https://www.hust.edu.cn" target="_blank">华中科技大学基建处</a>
+        <a href="https://www.cug.edu.cn" target="_blank">中国地质大学基建处</a>
+        <a href="https://www.whu.edu.cn" target="_blank">武汉大学基建处</a>
+      </div>
+      <div class="footer-bottom">
+        <p>地址：武汉市东湖新技术开发区高新二路129号 邮编：430205 鄂ICP备 15016711号-1</p>
+        <p>© 湖北第二师范学院基建处 版权所有</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== 轮播图 =====
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      showSlide((currentSlide + 1) % totalSlides);
+    }
+
+    function prevSlide() {
+      showSlide((currentSlide - 1 + totalSlides) % totalSlides);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+
+    // 自动播放
+    let autoplay = setInterval(nextSlide, 5000);
+    const carousel = document.getElementById('carousel');
+    carousel.addEventListener('mouseenter', () => clearInterval(autoplay));
+    carousel.addEventListener('mouseleave', () => {
+      autoplay = setInterval(nextSlide, 5000);
+    });
+
+    // ===== 移动端菜单 =====
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('hidden');
+    }
+  </script>
+
+</body>
+</html>

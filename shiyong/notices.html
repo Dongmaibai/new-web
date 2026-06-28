@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通知公告 - 湖北第二师范学院基建处</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-wrap { max-width:1200px; margin:0 auto; padding:24px; }
+    .breadcrumb { font-size:13px; color:#888; margin-bottom:16px; }
+    .breadcrumb a { color:#1a4d8f; }
+    .breadcrumb a:hover { text-decoration:underline; }
+    .breadcrumb span { margin:0 6px; }
+    .page-card { background:#fff; border:1px solid #e0e4e8; border-radius:4px; overflow:hidden; }
+    .page-card-header { background:#1a4d8f; color:#fff; padding:12px 20px; display:flex; align-items:center; gap:10px; }
+    .page-card-header h1 { font-size:16px; font-weight:700; }
+    .page-card-body { padding:24px 28px; }
+    .page-card-body p { font-size:14px; line-height:1.9; color:#444; margin-bottom:12px; }
+    .page-card-body h3 { font-size:15px; font-weight:700; color:#1a4d8f; margin:20px 0 10px; border-left:3px solid #1a4d8f; padding-left:10px; }
+    .article-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+    .article-table th { background:#1a4d8f; color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-table td { padding:9px 14px; border-bottom:1px solid #eee; }
+    .article-table tr:last-child td { border-bottom:none; }
+    .article-table tr:hover td { background:#f5f7fa; }
+    .article-table a { color:#333; transition:color 0.2s; }
+    .article-table a:hover { color:#1a4d8f; }
+    .article-table .num { color:#999; text-align:center; }
+    .org-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+    .org-table th { background:#1a4d8f; color:#fff; padding:10px 14px; text-align:center; font-weight:600; }
+    .org-table td { padding:10px 14px; border:1px solid #e0e4e8; text-align:center; vertical-align:middle; }
+    .org-table tr:nth-child(even) td { background:#f9f9f9; }
+    .contact-info p { margin-bottom:8px; }
+    .contact-info .label { font-weight:600; color:#1a4d8f; display:inline-block; width:80px; }
+    .map-placeholder { width:100%; height:240px; background:#e8ecf1; border-radius:4px; display:flex; align-items:center; justify-content:center; color:#999; font-size:14px; margin-top:16px; border:1px dashed #ccc; }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    <div class="banner-inner">
+      <div class="banner-logo">
+        <img src="https://miaoda-conversation-file.cdn.bcebos.com/user-cmg2eoeibj7k/app-cmg5jd41cgld/20260627/image_1782550266827.png" alt="湖北第二师范学院校徽">
+      </div>
+      <div class="banner-text">
+        <div class="school-name">
+          <div class="cn">湖北第二师范学院</div>
+          <div class="en">HUBEI UNIVERSITY OF EDUCATION</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="dept-name">
+          <div class="cn">基建处</div>
+          <div class="en">Infrastructure Construction Department</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <button class="mobile-toggle" onclick="toggleMobileNav()">&#9776;</button>
+      <div class="nav-menu" id="navMenu">
+        <div class="nav-item"><a href="https://www.hue.edu.cn" target="_blank">二师首页</a></div>
+        <div class="nav-item"><a href="index.html">部门首页</a></div>
+        <div class="nav-item{NAV_DEPT}">
+          <span>部门简介 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="dept-organization.html">组织机构</a>
+            <a href="dept-functions.html">工作职能</a>
+            <a href="dept-offices.html">科室设置</a>
+            <a href="dept-responsibilities.html">科室职责</a>
+          </div>
+        </div>
+        <div class="nav-item{NAV_PARTY}"><a href="party-building.html">党建工作</a></div>
+        <div class="nav-item{NAV_WORK}">
+          <span>工作动态 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="work-business.html">业务动态</a>
+            <a href="work-projects.html">项目建设</a>
+          </div>
+        </div>
+        <div class="nav-item{NAV_STUDY}"><a href="study.html">学习园地</a></div>
+        <div class="nav-item{NAV_REG}">
+          <span>规章制度 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="regulations-national.html">国家相关政策法规</a>
+            <a href="regulations-school.html">学校相关规则制度</a>
+          </div>
+        </div>
+        <div class="nav-item{NAV_NOTICE}"><a href="notices.html">通知公告</a></div>
+        <div class="nav-item{NAV_CONTACT}"><a href="contact.html">联系我们</a></div>
+      </div>
+    </div>
+    <div class="mobile-nav hidden" id="mobileNav">
+      <a href="https://www.hue.edu.cn" target="_blank">二师首页</a>
+      <a href="index.html">部门首页</a>
+      <div class="mobile-group-title">部门简介</div>
+      <a href="dept-organization.html">组织机构</a>
+      <a href="dept-functions.html">工作职能</a>
+      <a href="dept-offices.html">科室设置</a>
+      <a href="dept-responsibilities.html">科室职责</a>
+      <a href="party-building.html">党建工作</a>
+      <div class="mobile-group-title">工作动态</div>
+      <a href="work-business.html">业务动态</a>
+      <a href="work-projects.html">项目建设</a>
+      <a href="study.html">学习园地</a>
+      <div class="mobile-group-title">规章制度</div>
+      <a href="regulations-national.html">国家相关政策法规</a>
+      <a href="regulations-school.html">学校相关规则制度</a>
+      <a href="notices.html">通知公告</a>
+      <a href="contact.html">联系我们</a>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a><span>&gt;</span>通知公告
+    </div>
+    <div class="page-card">
+      <div class="page-card-header"><h1>通知公告</h1></div>
+      <div class="page-card-body">
+        <table class="article-table"><thead><tr><th style="width:40px" class="num">序号</th><th>标题</th><th style="width:100px">发布时间</th></tr></thead><tbody><tr><td class="num">1</td><td><a href="article.html?id=notices-1&title=%E5%85%B3%E4%BA%8E%E5%81%9A%E5%A5%BD2025%E5%B9%B4%E6%9A%91%E6%9C%9F%E6%A0%A1%E5%9B%AD%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E7%BB%B4%E4%BF%AE%E6%94%B9%E9%80%A0%E5%B7%A5%E4%BD%9C%E7%9A%84%E9%80%9A%E7%9F%A5&date=2025-06-20&cat=%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">关于做好2025年暑期校园基础设施维修改造工作的通知</a></td><td>2025-06-20</td></tr><tr><td class="num">2</td><td><a href="article.html?id=notices-2&title=%E8%AF%84%E6%A0%87%E7%BB%93%E6%9E%9C%E5%85%AC%E7%A4%BA%E2%80%94%E2%80%94%E6%B9%96%E5%8C%97%E7%AC%AC%E4%BA%8C%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A2%E7%BB%BC%E5%90%88%E6%95%99%E5%AD%A6%E6%A5%BC%E5%BB%BA%E8%AE%BE%E9%A1%B9%E7%9B%AE&date=2025-05-15&cat=%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">评标结果公示——湖北第二师范学院综合教学楼建设项目</a></td><td>2025-05-15</td></tr><tr><td class="num">3</td><td><a href="article.html?id=notices-3&title=%E5%85%B3%E4%BA%8E%E5%BE%81%E9%9B%862025%E5%B9%B4%E5%BA%A6%E6%A0%A1%E5%9B%AD%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E5%BB%BA%E8%AE%BE%E9%A1%B9%E7%9B%AE%E5%BB%BA%E8%AE%AE%E7%9A%84%E9%80%9A%E7%9F%A5&date=2025-04-10&cat=%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">关于征集2025年度校园基础设施建设项目建议的通知</a></td><td>2025-04-10</td></tr><tr><td class="num">4</td><td><a href="article.html?id=notices-4&title=%E6%B9%96%E5%8C%97%E7%AC%AC%E4%BA%8C%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A2%E7%94%9F%E6%80%81%E5%81%9C%E8%BD%A6%E5%9C%BA%E5%BB%BA%E8%AE%BE%E5%B7%A5%E7%A8%8B%E6%8B%9B%E6%A0%87%E5%85%AC%E5%91%8A&date=2025-03-31&cat=%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">湖北第二师范学院生态停车场建设工程招标公告</a></td><td>2025-03-31</td></tr><tr><td class="num">5</td><td><a href="article.html?id=notices-5&title=%E5%9F%BA%E5%BB%BA%E5%A4%84%E5%85%B3%E4%BA%8E%E5%BC%80%E5%B1%95%E6%A0%A1%E5%9B%AD%E5%AE%89%E5%85%A8%E9%9A%90%E6%82%A3%E6%8E%92%E6%9F%A5%E6%95%B4%E6%B2%BB%E4%B8%93%E9%A1%B9%E8%A1%8C%E5%8A%A8%E7%9A%84%E9%80%9A%E7%9F%A5&date=2025-02-28&cat=%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">基建处关于开展校园安全隐患排查整治专项行动的通知</a></td><td>2025-02-28</td></tr><tr><td class="num">6</td><td><a href="article.html?id=notices-6&title=%E5%9F%BA%E5%BB%BA%E5%A4%842025%E5%B9%B4%E5%BA%A6%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92&date=2025-01-20&cat=%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">基建处2025年度工作计划</a></td><td>2025-01-20</td></tr><tr><td class="num">7</td><td><a href="article.html?id=notices-7&title=%E5%85%B3%E4%BA%8E%E8%A7%84%E8%8C%83%E6%A0%A1%E5%9B%AD%E6%96%BD%E5%B7%A5%E7%AE%A1%E7%90%86%E7%9A%84%E9%80%9A%E7%9F%A5&date=2024-12-05&cat=%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">关于规范校园施工管理的通知</a></td><td>2024-12-05</td></tr><tr><td class="num">8</td><td><a href="article.html?id=notices-8&title=%E5%9F%BA%E5%BB%BA%E5%A4%84%E5%85%B3%E4%BA%8E%E5%81%9A%E5%A5%BD%E5%86%AC%E5%AD%A3%E6%96%BD%E5%B7%A5%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E7%9A%84%E9%80%9A%E7%9F%A5&date=2024-11-10&cat=%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">基建处关于做好冬季施工安全管理的通知</a></td><td>2024-11-10</td></tr><tr><td class="num">9</td><td><a href="article.html?id=notices-9&title=%E6%B9%96%E5%8C%97%E7%AC%AC%E4%BA%8C%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A2%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%AE%AD%E4%B8%AD%E5%BF%83%E5%9C%9F%E5%BB%BA%E5%B7%A5%E7%A8%8B%E6%8B%9B%E6%A0%87%E5%85%AC%E5%91%8A&date=2024-10-22&cat=%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">湖北第二师范学院工程实训中心土建工程招标公告</a></td><td>2024-10-22</td></tr></tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top:32px">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <h4>友情链接</h4>
+        <a href="http://www.jcut.edu.cn" target="_blank">荆楚理工学院基建处</a>
+        <a href="https://www.ccnu.edu.cn" target="_blank">华中师范大学基建处</a>
+        <a href="https://www.hust.edu.cn" target="_blank">华中科技大学基建处</a>
+        <a href="https://www.cug.edu.cn" target="_blank">中国地质大学基建处</a>
+        <a href="https://www.whu.edu.cn" target="_blank">武汉大学基建处</a>
+      </div>
+      <div class="footer-bottom">
+        <p>地址：武汉市东湖新技术开发区高新二路129号 邮编：430205 鄂ICP备 15016711号-1</p>
+        <p>© 湖北第二师范学院基建处 版权所有</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileNav() {
+      var nav = document.getElementById('mobileNav');
+      nav.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
