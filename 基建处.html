@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基建处 - 湖北第二师范学院</title>
+  <style>
+    /* ===== 基础重置 ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif; background: #f5f5f5; color: #333; line-height: 1.6; }
+
+    /* ===== 顶部横幅 ===== */
+    .top-banner { background: linear-gradient(135deg, #1a3a6b 0%, #0d5ba8 50%, #1a6fb5 100%); color: #fff; }
+    .top-banner-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 20px 30px; gap: 25px; }
+    .top-banner-logo img { height: 80px; }
+    .top-banner-text { display: flex; align-items: center; gap: 20px; }
+    .school-name .cn { font-size: 26px; font-weight: bold; letter-spacing: 4px; font-family: "Noto Serif SC", "SimSun", serif; }
+    .school-name .en { font-size: 11px; letter-spacing: 2px; opacity: 0.85; margin-top: 4px; }
+    .banner-divider { width: 2px; height: 50px; background: rgba(255,255,255,0.4); }
+    .dept-name .cn { font-size: 32px; font-weight: bold; letter-spacing: 6px; font-family: "Noto Serif SC", "SimSun", serif; }
+    .dept-name .en { font-size: 11px; letter-spacing: 1px; opacity: 0.85; margin-top: 4px; }
+
+    /* ===== 导航栏 ===== */
+    .navbar { background: #0d4a8a; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .navbar-inner { max-width: 1200px; margin: 0 auto; display: flex; }
+    .mobile-toggle { display: none; background: none; border: none; color: #fff; font-size: 28px; padding: 12px 20px; cursor: pointer; }
+    .nav-menu { display: flex; flex-wrap: wrap; }
+    .nav-item { position: relative; }
+    .nav-item > a, .nav-item > span { display: block; padding: 16px 22px; color: #fff; text-decoration: none; font-size: 15px; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
+    .nav-item:hover > a, .nav-item:hover > span { background: #0b3d70; }
+    .nav-item.active > a { background: #e8a838; color: #fff; font-weight: bold; }
+    .dropdown-arrow { font-size: 10px; margin-left: 4px; }
+    .dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 180px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 0 0 4px 4px; overflow: hidden; }
+    .dropdown a { display: block; padding: 12px 20px; color: #333; text-decoration: none; font-size: 14px; transition: background 0.2s; border-bottom: 1px solid #eee; }
+    .dropdown a:hover { background: #e8f0fa; color: #0d4a8a; }
+    .nav-item:hover .dropdown { display: block; }
+    .mobile-nav { display: none; background: #0d4a8a; padding: 0 20px 20px; }
+    .mobile-nav a { display: block; padding: 10px 0; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.15); font-size: 15px; }
+    .mobile-group-title { color: #e8a838; font-weight: bold; font-size: 14px; padding-top: 12px; }
+    .mobile-nav.hidden { display: none; }
+
+    /* ===== 轮播图 ===== */
+    .carousel { position: relative; max-width: 1200px; margin: 0 auto; overflow: hidden; height: 420px; }
+    .carousel-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease; }
+    .carousel-slide.active { opacity: 1; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.65)); padding: 30px 30px 20px; }
+    .carousel-caption p { color: #fff; font-size: 20px; font-weight: bold; }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); color: #fff; border: none; font-size: 32px; width: 50px; height: 50px; cursor: pointer; border-radius: 50%; transition: background 0.2s; z-index: 10; }
+    .carousel-btn:hover { background: rgba(0,0,0,0.65); }
+    .carousel-btn.prev { left: 20px; }
+    .carousel-btn.next { right: 20px; }
+    .carousel-dots { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
+    .carousel-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; background: transparent; cursor: pointer; transition: background 0.3s; }
+    .carousel-dot.active { background: #fff; }
+
+    /* ===== 内容区域 ===== */
+    .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+
+    /* ===== 卡片 ===== */
+    .card { background: #fff; border-radius: 6px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; }
+    .card-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 2px solid #0d5ba8; }
+    .card-header h2 { font-size: 18px; color: #0d4a8a; position: relative; padding-left: 14px; }
+    .card-header h2::before { content: ''; position: absolute; left: 0; top: 3px; bottom: 3px; width: 4px; background: #e8a838; border-radius: 2px; }
+    .card-header .more { color: #999; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .card-header .more:hover { color: #0d4a8a; }
+    .card-body { padding: 16px 20px; }
+
+    /* ===== 文章列表 ===== */
+    .article-list { list-style: none; }
+    .article-list li { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px dashed #eee; }
+    .article-list li:last-child { border-bottom: none; }
+    .article-list .arrow { width: 6px; height: 6px; border-right: 2px solid #e8a838; border-top: 2px solid #e8a838; transform: rotate(45deg); margin-right: 12px; flex-shrink: 0; }
+    .article-list a { flex: 1; color: #333; text-decoration: none; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: color 0.2s; }
+    .article-list a:hover { color: #0d4a8a; }
+    .article-list .date { color: #999; font-size: 12px; margin-left: 12px; white-space: nowrap; }
+
+    /* ===== 图文列表（工作动态） ===== */
+    .card-list .item { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px dashed #eee; }
+    .card-list .item:last-child { border-bottom: none; }
+    .card-list .thumb { flex-shrink: 0; width: 180px; height: 120px; overflow: hidden; border-radius: 4px; }
+    .card-list .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+    .card-list .thumb img:hover { transform: scale(1.05); }
+    .card-list .info { flex: 1; min-width: 0; }
+    .card-list .info > a { color: #222; text-decoration: none; font-size: 15px; font-weight: bold; line-height: 1.4; transition: color 0.2s; }
+    .card-list .info > a:hover { color: #0d4a8a; }
+    .card-list .info .desc { color: #777; font-size: 13px; margin-top: 8px; line-height: 1.6; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    .card-list .info .date { color: #999; font-size: 12px; margin-top: 6px; }
+
+    /* ===== 底部 ===== */
+    .footer { background: #1a3a6b; color: #ccc; margin-top: 40px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+    .footer-links { margin-bottom: 20px; }
+    .footer-links h4 { color: #fff; font-size: 16px; margin-bottom: 12px; }
+    .footer-links a { color: #bcd4f0; text-decoration: none; margin-right: 20px; font-size: 14px; transition: color 0.2s; }
+    .footer-links a:hover { color: #e8a838; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; text-align: center; font-size: 13px; color: #99b; }
+    .footer-bottom p { margin: 4px 0; }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 900px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .top-banner-inner { flex-direction: column; text-align: center; }
+      .top-banner-text { flex-direction: column; gap: 10px; }
+      .banner-divider { width: 60px; height: 1px; }
+      .carousel { height: 240px; }
+      .nav-menu { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-nav { display: block; }
+      .card-list .thumb { width: 120px; height: 90px; }
+      .card-list .info > a { font-size: 14px; }
+    }
+
+    @media (max-width: 600px) {
+      .top-banner-logo img { height: 50px; }
+      .school-name .cn { font-size: 18px; }
+      .dept-name .cn { font-size: 22px; }
+      .carousel { height: 180px; }
+      .carousel-caption p { font-size: 14px; }
+      .carousel-btn { width: 36px; height: 36px; font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部横幅 -->
+  <div class="top-banner">
+    <div class="top-banner-inner">
+      <div class="top-banner-logo">
+        <img src="./基建处_files/logo.png" alt="湖北第二师范学院校徽" onerror="this.style.display='none'">
+      </div>
+      <div class="top-banner-text">
+        <div class="school-name">
+          <div class="cn">湖北第二师范学院</div>
+          <div class="en">HUBEI UNIVERSITY OF EDUCATION</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="dept-name">
+          <div class="cn">基 建 处</div>
+          <div class="en">Infrastructure Construction Department</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <button class="mobile-toggle" onclick="toggleMobileNav()">&#9776;</button>
+      <div class="nav-menu" id="navMenu">
+        <div class="nav-item"><a href="https://www.hue.edu.cn" target="_blank">二师首页</a></div>
+        <div class="nav-item active"><a href="index.html">部门首页</a></div>
+        <div class="nav-item">
+          <span>部门简介 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="https://jjc.hue.edu.cn/zzjg/list.htm" target="_blank">组织机构</a>
+            <a href="https://jjc.hue.edu.cn/gzzn/list.htm" target="_blank">工作职能</a>
+            <a href="https://jjc.hue.edu.cn/kssz/list.htm" target="_blank">科室设置</a>
+            <a href="https://jjc.hue.edu.cn/kszz/list.htm" target="_blank">科室职责</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="https://jjc.hue.edu.cn/djgz/list.htm" target="_blank">党建工作</a></div>
+        <div class="nav-item">
+          <span>工作动态 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="https://jjc.hue.edu.cn/ywdt/list.htm" target="_blank">业务动态</a>
+            <a href="https://jjc.hue.edu.cn/xmjs/list.htm" target="_blank">项目建设</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="https://jjc.hue.edu.cn/xxyd/list.htm" target="_blank">学习园地</a></div>
+        <div class="nav-item">
+          <span>规章制度 <span class="dropdown-arrow">&#9662;</span></span>
+          <div class="dropdown">
+            <a href="https://jjc.hue.edu.cn/gjxgzcfg/list.htm" target="_blank">国家相关政策法规</a>
+            <a href="https://jjc.hue.edu.cn/xxxggzzd/list.htm" target="_blank">学校相关规则制度</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="https://jjc.hue.edu.cn/tzgg/list.htm" target="_blank">通知公告</a></div>
+        <div class="nav-item"><a href="https://jjc.hue.edu.cn/lxwm/list.htm" target="_blank">联系我们</a></div>
+      </div>
+    </div>
+    <div class="mobile-nav hidden" id="mobileNav">
+      <a href="https://www.hue.edu.cn" target="_blank">二师首页</a>
+      <a href="index.html">部门首页</a>
+      <div class="mobile-group-title">部门简介</div>
+      <a href="https://jjc.hue.edu.cn/zzjg/list.htm" target="_blank">组织机构</a>
+      <a href="https://jjc.hue.edu.cn/gzzn/list.htm" target="_blank">工作职能</a>
+      <a href="https://jjc.hue.edu.cn/kssz/list.htm" target="_blank">科室设置</a>
+      <a href="https://jjc.hue.edu.cn/kszz/list.htm" target="_blank">科室职责</a>
+      <a href="https://jjc.hue.edu.cn/djgz/list.htm" target="_blank">党建工作</a>
+      <div class="mobile-group-title">工作动态</div>
+      <a href="https://jjc.hue.edu.cn/ywdt/list.htm" target="_blank">业务动态</a>
+      <a href="https://jjc.hue.edu.cn/xmjs/list.htm" target="_blank">项目建设</a>
+      <a href="https://jjc.hue.edu.cn/xxyd/list.htm" target="_blank">学习园地</a>
+      <div class="mobile-group-title">规章制度</div>
+      <a href="https://jjc.hue.edu.cn/gjxgzcfg/list.htm" target="_blank">国家相关政策法规</a>
+      <a href="https://jjc.hue.edu.cn/xxxggzzd/list.htm" target="_blank">学校相关规则制度</a>
+      <a href="https://jjc.hue.edu.cn/tzgg/list.htm" target="_blank">通知公告</a>
+      <a href="https://jjc.hue.edu.cn/lxwm/list.htm" target="_blank">联系我们</a>
+    </div>
+  </nav>
+
+  <!-- 轮播图 -->
+  <div class="carousel" id="carousel">
+    <div class="carousel-slide active">
+      <img src="./基建处_files/banner1.jpg" alt="校园全景">
+      <div class="carousel-caption"><p>校园全景</p></div>
+    </div>
+    <div class="carousel-slide">
+      <img src="./基建处_files/banner2.jpg" alt="基建项目1">
+      <div class="carousel-caption"><p>基建项目展示</p></div>
+    </div>
+    <div class="carousel-slide">
+      <img src="./基建处_files/banner3.jpg" alt="基建项目2">
+      <div class="carousel-caption"><p>基础设施建设</p></div>
+    </div>
+    <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+    <div class="carousel-dots">
+      <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+      <button class="carousel-dot" onclick="goToSlide(1)"></button>
+      <button class="carousel-dot" onclick="goToSlide(2)"></button>
+    </div>
+  </div>
+
+  <!-- 内容区域 -->
+  <div class="container">
+    <div class="content-grid">
+
+      <!-- 信息公开 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>信息公开</h2>
+          <a href="https://jjc.hue.edu.cn/tzgg/list.htm" target="_blank" class="more">更多&gt;&gt;</a>
+        </div>
+        <div class="card-body">
+          <ul class="article-list">
+            <li><div class="arrow"></div><a href="https://jjc.hue.edu.cn/2023/0406/c18357a150681/page.htm" target="_blank">评标结果公示--湖北第二师范学院...</a><span class="date">2023-04-06</span></li>
+            <li><div class="arrow"></div><a href="https://jjc.hue.edu.cn/2023/0331/c18357a150485/page.htm" target="_blank">湖北第二师范学院综合教学楼和工...</a><span class="date">2023-03-31</span></li>
+            <li><div class="arrow"></div><a href="https://jjc.hue.edu.cn/2023/0331/c18357a150484/page.htm" target="_blank">湖北第二师范学院生态停车场建设...</a><span class="date">2023-03-31</span></li>
+            <li><div class="arrow"></div><a href="https://jjc.hue.edu.cn/2022/0710/c18357a143929/page.htm" target="_blank">【湖北省中心】湖北第二师范学院...</a><span class="date">2022-07-10</span></li>
+            <li><div class="arrow"></div><a href="https://jjc.hue.edu.cn/2022/0615/c18357a143328/page.htm" target="_blank">湖北第二师范学院工程实训中心土...</a><span class="date">2022-06-15</span></li>
+            <li><div class="arrow"></div><a href="https://jjc.hue.edu.cn/2022/0517/c18357a142373/page.htm" target="_blank">【湖北省中心】湖北第二师范学院...</a><span class="date">2022-05-17</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 工作动态 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>工作动态</h2>
+          <a href="https://jjc.hue.edu.cn/gzdt/list.htm" target="_blank" class="more">更多&gt;&gt;</a>
+        </div>
+        <div class="card-body">
+          <div class="card-list">
+            <div class="item">
+              <div class="thumb">
+                <img src="./基建处_files/work1.jpg" alt="以师生为本 聚力攻坚">
+              </div>
+              <div class="info">
+                <a href="#" target="_blank">以师生为本 聚力攻坚 基础设施建设全面推进</a>
+                <p class="desc">"十四五"期间，学校坚持以习近平新时代中国特色社会主义思想为指导，聚焦"补短板、提品质、强保障、促共...</p>
+                <p class="date">2024-12-20</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumb">
+                <img src="./基建处_files/work2.jpg" alt="基建处党支部">
+              </div>
+              <div class="info">
+                <a href="#" target="_blank">基建处党支部开展深入贯彻中央八项规定精神学习教育总结活动</a>
+                <p class="desc">基建处党支部开展深入贯彻中央八项精神学习教育总结活动本网讯（通讯员 杨戌）为持续巩固拓展深入贯彻中央...</p>
+                <p class="date">2024-11-15</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 学习园地 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>学习园地</h2>
+          <a href="https://jjc.hue.edu.cn/xxyd/list.htm" target="_blank" class="more">更多&gt;&gt;</a>
+        </div>
+        <div class="card-body">
+          <ul class="article-list">
+            <li><div class="arrow"></div><a href="https://www.12371.cn/2025/06/30/ARTI1751284178230672.shtml" target="_blank">习近平在中共中央政治局第二十一...</a><span class="date">2025-07-09</span></li>
+            <li><div class="arrow"></div><a href="https://www.12371.cn/2025/05/27/ARTI1748309030928996.shtml" target="_blank">中央广播电视总台党组专题传达学...</a><span class="date">2025-06-09</span></li>
+            <li><div class="arrow"></div><a href="https://djyj.12371.cn/2025/06/17/ARTI1750124199507990.shtml" target="_blank">中共中央国务院印发《党政机关厉...</a><span class="date">2025-06-09</span></li>
+            <li><div class="arrow"></div><a href="https://www.12371.cn/2025/05/20/ARTI1747726148050332.shtml" target="_blank">习近平在河南省考察时强调 坚定...</a><span class="date">2025-06-09</span></li>
+            <li><div class="arrow"></div><a href="https://news.12371.cn/2019/02/28/ARTI1551348817672985.shtml" target="_blank">中共中央印发《中国共产党重大事...</a><span class="date">2025-05-22</span></li>
+            <li><div class="arrow"></div><a href="http://cpc.people.com.cn/n1/2025/0306/c64094-40432102.html" target="_blank">李强作的政府工作报告（摘登）</a><span class="date">2025-04-23</span></li>
+            <li><div class="arrow"></div><a href="http://yn.people.com.cn/n2/2025/0120/c378440-41114008.html" target="_blank">《教育强国建设规划纲要（2024-2...</a><span class="date">2025-03-26</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 通知公告 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>通知公告</h2>
+          <a href="https://jjc.hue.edu.cn/tzgg/list.htm" target="_blank" class="more">更多&gt;&gt;</a>
+        </div>
+        <div class="card-body">
+          <ul class="article-list">
+            <li><div class="arrow"></div><a href="#" target="_blank">关于做好2025年暑期校园基础设施维修改造工作的通知</a><span class="date">2025-06-20</span></li>
+            <li><div class="arrow"></div><a href="#" target="_blank">基建处关于开展校园安全隐患排查整治专项行动的通知</a><span class="date">2025-05-15</span></li>
+            <li><div class="arrow"></div><a href="#" target="_blank">关于征集2025年度校园基础设施建设项目建议的通知</a><span class="date">2025-04-10</span></li>
+            <li><div class="arrow"></div><a href="#" target="_blank">基建处2025年度工作计划</a><span class="date">2025-01-20</span></li>
+            <li><div class="arrow"></div><a href="#" target="_blank">关于规范校园施工管理的通知</a><span class="date">2024-12-05</span></li>
+            <li><div class="arrow"></div><a href="#" target="_blank">基建处关于做好冬季施工安全管理的通知</a><span class="date">2024-11-10</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <h4>友情链接</h4>
+        <a href="https://www.bidcenter.com.cn/newssearchyz-37358485.html" target="_blank">荆楚理工学院基建处</a>
+        <a href="http://occ.ccnu.edu.cn/wzsy.htm" target="_blank">华中师范大学基建处</a>
+        <a href="http://jjc.hust.edu.cn/" target="_blank">华中科技大学基建处</a>
+        <a href="https://jjc.cug.edu.cn/" target="_blank">中国地质大学基建处</a>
+        <a href="http://hqbzb.whu.edu.cn/jjwxfw/gzzd/cngzzd.htm" target="_blank">武汉大学基建处</a>
+      </div>
+      <div class="footer-bottom">
+        <p>地址：武汉市东湖新技术开发区高新二路129号 邮编：430205 鄂ICP备 15016711号-1</p>
+        <p>© 湖北第二师范学院基建处 版权所有</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== 轮播图 =====
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      showSlide((currentSlide + 1) % totalSlides);
+    }
+
+    function prevSlide() {
+      showSlide((currentSlide - 1 + totalSlides) % totalSlides);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+
+    // 自动播放
+    let autoplay = setInterval(nextSlide, 5000);
+    const carousel = document.getElementById('carousel');
+    carousel.addEventListener('mouseenter', () => clearInterval(autoplay));
+    carousel.addEventListener('mouseleave', () => { autoplay = setInterval(nextSlide, 5000); });
+
+    // ===== 移动端菜单 =====
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('hidden');
+    }
+  </script>
+
+</body>
+</html>
